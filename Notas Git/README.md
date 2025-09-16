@@ -1,11 +1,11 @@
 # Notas para Git
 
-Conjunto de apuntes breves para introducir Git desde cero. Cada capítulo te guía desde los conceptos básicos hasta los primeros pasos colaborativos.
+Conjunto de apuntes breves para introducir Git desde cero. Esta es una guía desde los conceptos básicos hasta los primeros pasos colaborativos.
 
 ## Cómo usar estos apuntes
-1. Lee los capítulos en orden para construir el conocimiento gradualmente.
-2. Practica cada comando en tu propio repositorio de pruebas.
-3. Regresa a esta página cuando necesites recordar workflows típicos.
+1. Leer los capítulos en orden para construir el conocimiento gradualmente.
+2. Practicar cada comando en tu propio repositorio de pruebas.
+3. Regresar a esta página cuando necesites recordar workflows típicos.
 
 ### Capítulos disponibles
 1. [¿Qué es Git?](01-que-es-git.md)
@@ -14,11 +14,16 @@ Conjunto de apuntes breves para introducir Git desde cero. Cada capítulo te gu�
 
 Próximos temas sugeridos: ramas (`git branch`/`git switch`), trabajo colaborativo (`git pull`, `git push`, `git merge`) y resolución de conflictos.
 
-## Chuleta de comandos esenciales
+## Resumen de comandos esenciales
 ### Preparar el entorno
 ```bash
 git config --global user.name "Tu Nombre"
 git config --global user.email "tu_correo@example.com"
+```
+
+El siguiente comando muestra la configuración global de Git en tu dispositivo
+```bash
+git config --global --list
 ```
 
 ### Ciclo básico de trabajo

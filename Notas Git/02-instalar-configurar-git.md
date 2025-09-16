@@ -69,7 +69,13 @@ cat ~/.ssh/id_ed25519.pub        # Linux, copia manualmente
 1. Accede a [GitHub.com](https://github.com) y haz clic en tu avatar.
 2. En el menú, selecciona **Settings** → **SSH and GPG keys**.
 3. Pulsa **New SSH key** (usa tus capturas `ssh_menu.png` y `ss_addkey.png` como referencia visual).
+
+![alt text](ssh_add.png)
+
 4. Coloca un título descriptivo (por ejemplo "MacBook Air") y pega la clave pública en el campo **Key**.
+
+![alt text](ss_addkey.png)
+
 5. Guarda con **Add SSH key**.
 
 ### 5. Probar la conexión
