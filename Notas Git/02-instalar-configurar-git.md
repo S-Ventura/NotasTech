@@ -18,6 +18,15 @@ sudo apt update
 sudo apt install git
 ```
 
+## Validar la instalación
+- Comprueba que Git está disponible y detecta la versión instalada:
+  ```bash
+  git --version
+  which git          # macOS / Linux: ruta del ejecutable
+  where git          # Windows (PowerShell / CMD)
+  ```
+- Si instalaste Xcode Command Line Tools en macOS, `git --version` deberá mostrar la versión de Homebrew; si no, revisa la ruta (`/usr/local/bin/git` o `/opt/homebrew/bin/git` en Apple Silicon).
+
 ## Configuración inicial
 Define tu nombre y correo para que quede registrado en los commits:
 ```bash
@@ -30,9 +39,13 @@ Opcional: cambia el editor por defecto (ejemplo con VS Code):
 git config --global core.editor "code --wait"
 ```
 
-Verifica tu configuración actual:
+### Verifica tu configuración actual
 ```bash
 git config --list
+```
+Para saber desde dónde llega cada ajuste usa:
+```bash
+git config --show-origin --list
 ```
 
 ## Configurar acceso por SSH a GitHub
@@ -83,6 +96,43 @@ cat ~/.ssh/id_ed25519.pub        # Linux, copia manualmente
 ssh -T git@github.com
 ```
 La primera vez, GitHub pedirá confirmar la huella digital; escribe `yes`. Debes ver un mensaje como `Hi username! You've successfully authenticated...`.
+
+## Ajustes recomendados tras la instalación
+- Establece la rama principal por defecto para repositorios nuevos (evita `master`):
+  ```bash
+  git config --global init.defaultBranch main
+  ```
+- Activa colores en la salida de la terminal si no lo hace por defecto:
+  ```bash
+  git config --global color.ui auto
+  ```
+- Windows: normaliza saltos de línea y almacena credenciales en el gestor oficial:
+  ```bash
+  git config --global core.autocrlf true         # usa false en macOS/Linux
+  git config --global credential.helper manager  # Git Credential Manager
+  ```
+- Si necesitas cambiar algo puntual, usa `git config --global --edit` y Git abrirá el archivo de configuración en tu editor por defecto.
+
+## Verificar repositorios y ramas
+- Comprueba si estás dentro de un repositorio Git:
+  ```bash
+  git status                  # muestra el estado breve por defecto
+  git status -sb              # versión compacta (short + branch)
+  git rev-parse --is-inside-work-tree
+  git rev-parse --show-toplevel
+  ```
+- Revisa las ramas disponibles y la rama activa:
+  ```bash
+  git branch                  # lista ramas locales
+  git branch --show-current   # indica la rama en la que trabajas
+  git branch -r               # remotas (origin/main, origin/dev, ...)
+  ```
+- Inspecciona los remotos configurados y su URL:
+  ```bash
+  git remote -v
+  git remote show origin      # detalles de seguimiento de la rama principal
+  ```
+- Si acabas de clonar un repo, confirma que `origin/main` (o la rama principal equivalente) existe y está vinculada con `git branch -vv`. Verás cada rama local y el remoto al que apunta.
 
 ## Buenas prácticas
 - Usa un correo asociado a la cuenta del servicio remoto (GitHub, GitLab, etc.).

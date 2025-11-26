@@ -8,11 +8,22 @@ Conjunto de apuntes breves para introducir Git desde cero. Esta es una guía des
 3. Regresar a esta página cuando necesites recordar workflows típicos.
 
 ### Capítulos disponibles
+
+#### Fundamentos
 1. [¿Qué es Git?](01-que-es-git.md)
 2. [Instalar y configurar Git](02-instalar-configurar-git.md)
 3. [Tu primer repositorio local](03-primer-repositorio.md)
 
-Próximos temas sugeridos: ramas (`git branch`/`git switch`), trabajo colaborativo (`git pull`, `git push`, `git merge`) y resolución de conflictos.
+#### Trabajo con ramas
+4. [Ramas en profundidad](04-ramas-en-profundidad.md)
+5. [Resolver conflictos](05-resolver-conflictos.md)
+
+#### Herramientas avanzadas
+6. [Git stash](06-git-stash.md)
+7. [.gitignore](07-gitignore.md)
+8. [Reescribir el historial](08-reescribir-historial.md)
+
+Próximos temas sugeridos: tags y releases, workflows avanzados (GitFlow, trunk-based), hooks de Git y automatización.
 
 ## Resumen de comandos esenciales
 ### Preparar el entorno

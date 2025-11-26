@@ -46,6 +46,52 @@ git push -u origin main         # `-u` (o `--set-upstream`) vincula la rama loca
 
 > Tip: usa commits frecuentes con mensajes claros; te ayudarán a entender la evolución del proyecto.
 
+## 6. Contribuir a un repositorio colaborativo
+1. Clona el repositorio y revisa sus remotos:
+   ```bash
+   git clone git@github.com:organizacion/proyecto.git
+   cd proyecto
+   git remote -v                 # confirma URLs de fetch/push
+   ```
+2. Asegúrate de trabajar sobre la rama principal actualizada:
+   ```bash
+   git switch main               # usa el nombre real de la rama (main, master, etc.)
+   git pull --rebase origin main # sincroniza tu copia local
+   ```
+   - `git fetch origin` descarga cambios sin mezclarlos; puedes usarlo antes de `pull`.
+   - Si el repositorio usa otra rama base, cámbiala por `develop`, `trunk`, etc.
+3. Crea una rama para tu aporte:
+   ```bash
+   git switch -c feature/nueva-funcionalidad
+   ```
+   Trabaja siempre en ramas descriptivas; evita modificar directamente `main`.
+4. Realiza cambios, revisa el estado y confirma:
+   ```bash
+   git status -sb
+   git add .
+   git commit -m "Describe brevemente tu cambio"
+   ```
+5. Envía la rama al remoto y prepara el Pull Request:
+   ```bash
+   git push -u origin feature/nueva-funcionalidad
+   ```
+   - Abre un Pull Request desde la rama recién publicada hacia la rama principal del proyecto.
+   - Responde a comentarios y añade commits extra si es necesario.
+6. Mantén tu rama alineada mientras revisan tu PR:
+   ```bash
+   git fetch origin
+   git rebase origin/main        # o merge si el flujo del equipo así lo prefiere
+   git push --force-with-lease origin feature/nueva-funcionalidad
+   ```
+   - `--force-with-lease` evita sobrescribir trabajo ajeno al actualizar la rama remota.
+   - Si el repositorio es un fork, añade el remoto original una vez:
+     ```bash
+     git remote add upstream git@github.com:upstream/proyecto.git
+     git fetch upstream
+     git rebase upstream/main
+     ```
+     Luego envía tus cambios a tu fork (`origin`) y crea el PR hacia `upstream`.
+
 ### Notas sobre ramas
 - `git branch` lista las ramas locales; la marca `*` indica cuál está activa.
 - Cambiar de rama:
