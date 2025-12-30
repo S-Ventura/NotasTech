@@ -122,6 +122,29 @@ La primera vez, GitHub pedirá confirmar la huella digital; escribe `yes`. Debes
 Riesgos:
 - `core.autocrlf` mal configurado puede generar diffs ruidosos o cambios de fin de línea inesperados.
 
+## Configuraciones para trabajo colaborativo (recomendadas)
+Estas ayudan a mantener tu rama al día y a evitar sorpresas al sincronizar.
+
+```bash
+git config --global fetch.prune true             # limpia referencias a ramas remotas borradas
+git config --global pull.rebase true             # historial más lineal (si tu equipo lo usa)
+git config --global rebase.autoStash true        # guarda/restaura cambios locales al hacer rebase
+git config --global push.default simple          # evita pushes ambiguos
+git config --global push.autoSetupRemote true    # crea upstream al primer push (Git reciente)
+```
+
+Opcional para verificar que quedo activo:
+```bash
+git config --global --get pull.rebase
+```
+
+Alternativas:
+- Si tu equipo NO usa rebase, cambia `pull.rebase` por `git config --global pull.ff only` para evitar merges inesperados.
+- Si no quieres auto-stash, omite `rebase.autoStash` y resuelve los cambios manualmente.
+
+Riesgos:
+- `pull.rebase` cambia el comportamiento de `git pull`; asegúrate de que el equipo esté alineado.
+
 ## Verificar repositorios y ramas
 - Comprueba si estás dentro de un repositorio Git:
   ```bash

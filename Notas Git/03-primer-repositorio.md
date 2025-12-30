@@ -19,6 +19,8 @@ git status
 ```
 Debes ver `README.md` como archivo sin seguimiento (`untracked`).
 
+Tip: `git status -sb` muestra un estado compacto con la rama activa.
+
 ## 3. Preparar y confirmar cambios
 ```bash
 git add README.md
@@ -37,6 +39,8 @@ Riesgos:
 git log --oneline
 ```
 Verás una línea con el identificador del commit y el mensaje "Primer commit".
+
+Tip: `git log --oneline --graph --decorate` muestra el historial con ramas y merges.
 
 ## 5. Conectar con un remoto (opcional)
 Si tienes un repositorio vacío en GitHub:
@@ -97,6 +101,7 @@ Riesgos:
    - `--force-with-lease` evita sobrescribir trabajo ajeno al actualizar la rama remota.
    Riesgos:
    - El rebase reescribe historial; no lo uses en ramas compartidas sin acuerdo.
+   Opcional (si trabajas con forks):
    - Si el repositorio es un fork, añade el remoto original una vez:
      ```bash
      git remote add upstream git@github.com:upstream/proyecto.git

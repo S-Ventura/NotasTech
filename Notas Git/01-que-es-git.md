@@ -11,6 +11,8 @@ Git es un sistema de control de versiones distribuido que permite:
 - **Branch (rama):** línea de trabajo paralela; `main` suele ser la rama principal.
 - **Remote (remoto):** copia del repositorio alojada en otra máquina, por ejemplo GitHub.
 
+Git es la herramienta de control de versiones; GitHub/GitLab/Bitbucket son plataformas para alojar repositorios y colaborar.
+
 ## Flujo básico
 1. Modificas archivos en tu carpeta local.
 2. Preparas los cambios con `git add`.
