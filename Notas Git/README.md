@@ -13,7 +13,7 @@ Conjunto de apuntes breves para introducir Git desde cero. Esta es una guía des
 1. [¿Qué es Git?](01-que-es-git.md)
 2. [Instalar y configurar Git](02-instalar-configurar-git.md)
 3. [Tu primer repositorio local](03-primer-repositorio.md)
-4. [Flujo diario con Git](04-flujo-diario.md)
+4. [Flujo diario con Git](03.1-flujo-diario.md)
 
 #### Trabajo con ramas
 4. [Ramas en profundidad](04-ramas-en-profundidad.md)
