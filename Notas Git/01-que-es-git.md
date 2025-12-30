@@ -18,3 +18,14 @@ Git es un sistema de control de versiones distribuido que permite:
 4. Sincronizas con otros repositorios (remotos) mediante `git push` o `git pull`.
 
 > Consejo: Git funciona igual en proyectos de código, documentos o cualquier tipo de archivo de texto.
+
+Riesgos:
+- Git no es backup por si solo; necesitas un remoto o copias externas para recuperar datos.
+
+Resumen rapido:
+- Git guarda historial y facilita colaborar sin pisar cambios.
+- Repositorio, commit, rama y remoto son los conceptos base.
+
+## Referencias oficiales (Git):
+- https://git-scm.com/docs
+- https://git-scm.com/docs/gitglossary

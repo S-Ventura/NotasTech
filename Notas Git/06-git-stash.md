@@ -24,6 +24,9 @@ git stash pop                   # aplica y elimina el stash más reciente
 git stash apply                 # aplica pero mantiene el stash guardado
 ```
 
+Riesgos:
+- `git stash pop` puede generar conflictos; si falla, el stash no se elimina.
+
 ### Ver stashes guardados
 ```bash
 git stash list
@@ -57,6 +60,9 @@ git stash drop                  # elimina el stash más reciente
 git stash drop stash@{1}        # elimina un stash específico
 git stash clear                 # elimina todos los stashes
 ```
+
+Riesgos:
+- `git stash drop` y `git stash clear` son destructivos; revisa con `git stash list`.
 
 ## Ver contenido de un stash
 
@@ -184,3 +190,10 @@ git stash show stash@{0} --name-only
 | Crear rama desde stash | `git stash branch nombre` |
 
 > Tip: Usa stash para interrupciones cortas. Si vas a dejar el trabajo por más tiempo, considera hacer un commit WIP que es más difícil de perder accidentalmente.
+
+## Referencias oficiales (Git)
+
+- https://git-scm.com/docs/git-stash
+- https://git-scm.com/docs/git-checkout
+- https://git-scm.com/docs/git-diff
+- https://git-scm.com/docs/git-switch

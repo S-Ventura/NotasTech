@@ -29,6 +29,9 @@ Esto mueve el archivo al área de preparación (*staging area*). Ahora crea tu p
 git commit -m "Primer commit"
 ```
 
+Riesgos:
+- `git add .` puede incluir archivos no deseados; revisa con `git status`.
+
 ## 4. Revisar historial de commits
 ```bash
 git log --oneline
@@ -43,6 +46,9 @@ git branch -M main              # `-M` fuerza el renombrado aunque ya exista en 
 git push -u origin main         # `-u` (o `--set-upstream`) vincula la rama local con la remota
 ```
 > Si estás configurando claves SSH, revisa la sección dedicada en el capítulo anterior antes de ejecutar estos comandos.
+
+Riesgos:
+- Verifica el remoto antes de hacer `git push` para no subir a un repo equivocado.
 
 > Tip: usa commits frecuentes con mensajes claros; te ayudarán a entender la evolución del proyecto.
 
@@ -60,6 +66,9 @@ git push -u origin main         # `-u` (o `--set-upstream`) vincula la rama loca
    ```
    - `git fetch origin` descarga cambios sin mezclarlos; puedes usarlo antes de `pull`.
    - Si el repositorio usa otra rama base, cámbiala por `develop`, `trunk`, etc.
+   Alternativas:
+   - `git checkout main` si tu Git no tiene `switch`.
+   - `git fetch origin && git merge origin/main` si el equipo no usa rebase.
 3. Crea una rama para tu aporte:
    ```bash
    git switch -c feature/nueva-funcionalidad
@@ -71,6 +80,8 @@ git push -u origin main         # `-u` (o `--set-upstream`) vincula la rama loca
    git add .
    git commit -m "Describe brevemente tu cambio"
    ```
+   Riesgos:
+   - `git add .` puede incluir cambios no deseados.
 5. Envía la rama al remoto y prepara el Pull Request:
    ```bash
    git push -u origin feature/nueva-funcionalidad
@@ -84,6 +95,8 @@ git push -u origin main         # `-u` (o `--set-upstream`) vincula la rama loca
    git push --force-with-lease origin feature/nueva-funcionalidad
    ```
    - `--force-with-lease` evita sobrescribir trabajo ajeno al actualizar la rama remota.
+   Riesgos:
+   - El rebase reescribe historial; no lo uses en ramas compartidas sin acuerdo.
    - Si el repositorio es un fork, añade el remoto original una vez:
      ```bash
      git remote add upstream git@github.com:upstream/proyecto.git
@@ -115,6 +128,8 @@ git push -u origin main         # `-u` (o `--set-upstream`) vincula la rama loca
   - `-m` en `git branch` renombra localmente sin forzar (`git branch -m main`).
   - `-d` elimina ramas locales ya fusionadas (`git branch -d mi-rama`).
   - `--delete` borra la rama remota (`git push origin --delete mi-rama`).
+  Riesgos:
+  - `git push --delete` elimina la rama remota; confirma antes de ejecutar.
 - Sustituye `mi-rama` por un nombre descriptivo del trabajo (por ejemplo `notas`).
 
 ## Resumen rápido
@@ -123,3 +138,16 @@ git push -u origin main         # `-u` (o `--set-upstream`) vincula la rama loca
 - `git add` mueve cambios al área de preparación.
 - `git commit` guarda un snapshot permanente con un mensaje descriptivo.
 - Configurar un remoto (`git remote add`, `git push -u origin main`) te permite respaldar y colaborar en línea.
+
+## Referencias oficiales (Git)
+
+- https://git-scm.com/docs/git-init
+- https://git-scm.com/docs/git-status
+- https://git-scm.com/docs/git-add
+- https://git-scm.com/docs/git-commit
+- https://git-scm.com/docs/git-log
+- https://git-scm.com/docs/git-remote
+- https://git-scm.com/docs/git-push
+- https://git-scm.com/docs/git-pull
+- https://git-scm.com/docs/git-fetch
+- https://git-scm.com/docs/git-rebase

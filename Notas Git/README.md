@@ -13,6 +13,7 @@ Conjunto de apuntes breves para introducir Git desde cero. Esta es una guía des
 1. [¿Qué es Git?](01-que-es-git.md)
 2. [Instalar y configurar Git](02-instalar-configurar-git.md)
 3. [Tu primer repositorio local](03-primer-repositorio.md)
+4. [Flujo diario con Git](03.1-flujo-diario.md)
 
 #### Trabajo con ramas
 4. [Ramas en profundidad](04-ramas-en-profundidad.md)
@@ -32,6 +33,9 @@ git config --global user.name "Tu Nombre"
 git config --global user.email "tu_correo@example.com"
 ```
 
+Riesgos:
+- `--global` afecta a todos tus repositorios; usa `--local` si solo aplica a uno.
+
 El siguiente comando muestra la configuración global de Git en tu dispositivo
 ```bash
 git config --global --list
@@ -46,6 +50,9 @@ git commit -m "Mensaje claro"  # guarda un snapshot con descripción
 git log --oneline              # revisa el historial compacto
 ```
 
+Riesgos:
+- `git add .` incluye todo lo rastreado; revisa con `git status` antes de commitear.
+
 ### Sincronizar con el remoto
 ```bash
 git push origin main           # envía commits locales a la rama remota
@@ -54,6 +61,88 @@ git fetch origin               # actualiza referencias sin fusionar todavía
 git merge origin/main          # fusiona manualmente después de un fetch
 ```
 
+Riesgos:
+- `git pull` puede crear un merge commit; usa `--rebase` si tu equipo lo prefiere.
+
+Alternativas:
+- `git pull --rebase origin main` para mantener historial lineal.
+
+### Mantenerte al día con main (flujo diario)
+Este flujo ayuda a mantener tu rama alineada con main sin acumular conflictos.
+
+Al iniciar el día:
+```bash
+git fetch origin
+git rebase origin/main         # o git merge origin/main si tu equipo usa merge
+```
+
+Riesgos:
+- `git rebase` reescribe historial; evita hacerlo en ramas compartidas.
+
+Alternativas:
+- `git pull --rebase origin main` en un solo paso.
+
+Antes de comenzar un bloque de trabajo importante:
+```bash
+git fetch origin
+git rebase origin/main
+```
+
+Antes de hacer push:
+```bash
+git fetch origin
+git rebase origin/main
+git push
+```
+
+Riesgos:
+- Si reescribes historial, puede requerir `git push --force-with-lease`.
+
+Antes de abrir un PR:
+```bash
+git fetch origin
+git rebase origin/main
+# corre tests y luego git push
+```
+
+Riesgos:
+- Rebase justo antes del PR cambia los commits revisados; avisa al equipo.
+
+Nota importante:
+- `pull.rebase=true` solo aplica cuando usas `git pull`. Si haces `git fetch` + `git merge`, no estás rebasando.
+
+### Cuando tu PR ya fue mergeado a main
+Si tu PR ya se fusionó, sincroniza tu entorno local:
+
+```bash
+git checkout main
+git pull
+```
+
+Alternativas:
+- `git switch main` en Git moderno.
+
+Si vas a seguir usando tu rama actual:
+```bash
+git checkout tu-rama
+git rebase origin/main
+git push
+```
+
+Riesgos:
+- Si reescribes historial, puede requerir `git push --force-with-lease`.
+
+Alternativas:
+- `git switch tu-rama` en Git moderno.
+
+Si no la vas a usar más, eliminarla es opción:
+```bash
+git branch -d tu-rama
+```
+
+Riesgos:
+- `-d` falla si hay commits no mergeados; `-D` los pierde si no hay respaldo.
+
 ### Flujo típico para Pull Requests
 ```bash
 git switch -c mi-feature             # crea una rama para tu cambio
@@ -61,6 +150,23 @@ git add . && git commit -m "Describe tu cambio"
 git push -u origin mi-feature        # publica la rama y crea el seguimiento
 # abre el PR desde la plataforma (GitHub/GitLab/Bitbucket)
 ```
+
+Riesgos:
+- `git add .` puede incluir cambios no deseados; revisa con `git status`.
+
 > Tras aprobarse el PR, fusiona desde la interfaz web o con `git merge`, luego actualiza tu rama principal con `git pull origin main`.
 
-Mantén esta chuleta a mano para recordar los comandos más usados mientras avanzas por los tutoriales.
+Esta es una guía rápida de referencia.
+
+## Referencias oficiales (Git)
+
+- https://git-scm.com/docs/git-config
+- https://git-scm.com/docs/git-status
+- https://git-scm.com/docs/git-add
+- https://git-scm.com/docs/git-commit
+- https://git-scm.com/docs/git-log
+- https://git-scm.com/docs/git-push
+- https://git-scm.com/docs/git-pull
+- https://git-scm.com/docs/git-fetch
+- https://git-scm.com/docs/git-merge
+- https://git-scm.com/docs/git-rebase

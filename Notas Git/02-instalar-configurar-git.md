@@ -34,6 +34,9 @@ git config --global user.name "Nombre Apellido"
 git config --global user.email "tu_correo@example.com"
 ```
 
+Riesgos:
+- `--global` aplica a todos los repos; usa `--local` para configurar solo el actual.
+
 Opcional: cambia el editor por defecto (ejemplo con VS Code):
 ```bash
 git config --global core.editor "code --wait"
@@ -70,6 +73,9 @@ Si quieres que se cargue automáticamente en cada nueva terminal, añade lo sigu
 ssh-add --apple-use-keychain ~/.ssh/id_ed25519 2>/dev/null
 ```
 En Linux o Windows (Git Bash) basta con `ssh-add ~/.ssh/id_ed25519`.
+
+Alternativas:
+- Usa HTTPS con Git Credential Manager si prefieres no gestionar llaves SSH.
 
 ### 3. Copiar la clave pública
 ```bash
@@ -113,6 +119,9 @@ La primera vez, GitHub pedirá confirmar la huella digital; escribe `yes`. Debes
   ```
 - Si necesitas cambiar algo puntual, usa `git config --global --edit` y Git abrirá el archivo de configuración en tu editor por defecto.
 
+Riesgos:
+- `core.autocrlf` mal configurado puede generar diffs ruidosos o cambios de fin de línea inesperados.
+
 ## Verificar repositorios y ramas
 - Comprueba si estás dentro de un repositorio Git:
   ```bash
@@ -138,3 +147,17 @@ La primera vez, GitHub pedirá confirmar la huella digital; escribe `yes`. Debes
 - Usa un correo asociado a la cuenta del servicio remoto (GitHub, GitLab, etc.).
 - Mantén tus claves SSH seguras: protege la carpeta `~/.ssh` y rota la clave si pierdes el equipo.
 - Repite la configuración sin `--global` dentro de un repositorio si necesitas datos distintos en un proyecto concreto.
+
+## Resumen rapido
+- Verifica la instalacion con `git --version` y revisa la ruta correcta.
+- Configura nombre, email y editor con `git config`.
+- Usa SSH o HTTPS según tu preferencia y seguridad.
+
+## Referencias oficiales (Git)
+
+- https://git-scm.com/docs/git
+- https://git-scm.com/docs/git-config
+- https://git-scm.com/docs/git-status
+- https://git-scm.com/docs/git-branch
+- https://git-scm.com/docs/git-remote
+- https://git-scm.com/docs/git-rev-parse

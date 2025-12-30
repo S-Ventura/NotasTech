@@ -120,6 +120,9 @@ git reset --mixed HEAD~1        # deshace commit, mantiene cambios en working di
 git reset --hard HEAD~1         # deshace commit y ELIMINA los cambios
 ```
 
+Riesgos:
+- `git reset --hard` elimina cambios locales; crea backup si no estás seguro.
+
 | Modo | Commit | Staging | Working dir |
 |------|--------|---------|-------------|
 | `--soft` | Deshace | Mantiene | Mantiene |
@@ -235,6 +238,9 @@ git reset --hard HEAD~3         # retrocede main
 git switch feature              # los commits están aquí
 ```
 
+Riesgos:
+- `git reset --hard` descarta cambios; crea una rama de respaldo antes.
+
 ### Eliminar un archivo del historial completo
 Si commiteaste accidentalmente un archivo sensible:
 ```bash
@@ -249,6 +255,9 @@ git filter-repo --path archivo_sensible.txt --invert-paths
 ```
 
 > Después de esto, necesitarás `git push --force` y todos los colaboradores deberán re-clonar.
+
+Riesgos:
+- `git filter-branch` y `git push --force` reescriben historial; coordina con el equipo.
 
 ## Resumen de comandos
 
@@ -265,3 +274,14 @@ git filter-repo --path archivo_sensible.txt --invert-paths
 | Abortar rebase | `git rebase --abort` |
 
 > Tip: Antes de operaciones peligrosas, crea una rama de respaldo: `git branch backup`. Si algo sale mal, siempre puedes volver a ella.
+
+## Referencias oficiales (Git)
+
+- https://git-scm.com/docs/git-commit
+- https://git-scm.com/docs/git-rebase
+- https://git-scm.com/docs/git-reset
+- https://git-scm.com/docs/git-revert
+- https://git-scm.com/docs/git-cherry-pick
+- https://git-scm.com/docs/git-reflog
+- https://git-scm.com/docs/git-filter-branch
+- https://git-scm.com/docs/git-branch
