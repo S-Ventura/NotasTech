@@ -120,7 +120,7 @@ La primera vez, GitHub pedirá confirmar la huella digital; escribe `yes`. Debes
 - Si necesitas cambiar algo puntual, usa `git config --global --edit` y Git abrirá el archivo de configuración en tu editor por defecto.
 
 Riesgos:
-- `core.autocrlf` mal configurado puede generar diffs ruidosos o cambios de fin de linea inesperados.
+- `core.autocrlf` mal configurado puede generar diffs ruidosos o cambios de fin de línea inesperados.
 
 ## Verificar repositorios y ramas
 - Comprueba si estás dentro de un repositorio Git:
@@ -151,7 +151,7 @@ Riesgos:
 ## Resumen rapido
 - Verifica la instalacion con `git --version` y revisa la ruta correcta.
 - Configura nombre, email y editor con `git config`.
-- Usa SSH o HTTPS segun tu preferencia y seguridad.
+- Usa SSH o HTTPS según tu preferencia y seguridad.
 
 ## Referencias oficiales (Git)
 

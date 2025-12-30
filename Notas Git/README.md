@@ -156,7 +156,7 @@ Riesgos:
 
 > Tras aprobarse el PR, fusiona desde la interfaz web o con `git merge`, luego actualiza tu rama principal con `git pull origin main`.
 
-Esta es una guia rápida de referencia.
+Esta es una guía rápida de referencia.
 
 ## Referencias oficiales (Git)
 

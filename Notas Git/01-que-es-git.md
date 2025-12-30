@@ -26,6 +26,6 @@ Resumen rapido:
 - Git guarda historial y facilita colaborar sin pisar cambios.
 - Repositorio, commit, rama y remoto son los conceptos base.
 
-Referencias oficiales (Git):
+## Referencias oficiales (Git):
 - https://git-scm.com/docs
 - https://git-scm.com/docs/gitglossary

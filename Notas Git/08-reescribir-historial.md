@@ -121,7 +121,7 @@ git reset --hard HEAD~1         # deshace commit y ELIMINA los cambios
 ```
 
 Riesgos:
-- `git reset --hard` elimina cambios locales; crea backup si no estas seguro.
+- `git reset --hard` elimina cambios locales; crea backup si no estás seguro.
 
 | Modo | Commit | Staging | Working dir |
 |------|--------|---------|-------------|
