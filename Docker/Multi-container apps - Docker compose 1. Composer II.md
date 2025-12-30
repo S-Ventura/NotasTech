@@ -29,3 +29,16 @@ services:
 
 volumes:
   postgres-db:
+
+## Riesgos y notas
+- `version` en Compose v2 es obsoleto; no es necesario.
+- Si faltan volumenes declarados, `docker compose up` falla.
+- Variables mal escritas (ej. `PGADMIN_DEFAULT_PASWORD`) rompen la configuracion.
+
+## Resumen rapido
+- Declara servicios y volumenes en el mismo archivo.
+- Revisa nombres y variables antes de ejecutar.
+
+## Referencias oficiales (Docker)
+- https://docs.docker.com/compose/compose-file/
+- https://docs.docker.com/engine/reference/commandline/compose/

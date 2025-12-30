@@ -77,3 +77,20 @@ docker container run \
 -P phpmyadmin:5.2.0-apache
 ```
 ![[http://localhost:55000/](http://localhost:55000/)](image-3.png)
+
+## Riesgos y notas
+- Bind mounts requieren rutas absolutas y pueden causar problemas de permisos.
+- `docker volume prune` borra volumenes no usados; revisa antes.
+
+## Alternativas
+- Volumenes nombrados para datos persistentes.
+- Bind mounts para desarrollo local rapido.
+
+## Resumen rapido
+- Volumenes nombrados, bind mounts y anonimos sirven para persistencia.
+- Usa el tipo correcto segun el caso.
+
+## Referencias oficiales (Docker)
+- https://docs.docker.com/engine/storage/volumes/
+- https://docs.docker.com/engine/storage/bind-mounts/
+- https://docs.docker.com/engine/reference/commandline/volume/

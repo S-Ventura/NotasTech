@@ -49,3 +49,23 @@ Digest: sha256:e101f9db31916a5d4d7d594dd0dd092fb23ab4f499f1d7a7425d1afd4162c4bc
 Status: Downloaded newer image for mariadb:jammy
 5f78385472120644a05933024e274b548a4bf1131fc98f1e9d4fb74f899ee7f7
 ```
+
+## Riesgos y notas
+- Imagenes con tags especificos evitan cambios inesperados.
+- Guarda credenciales en variables o `.env`, no en el historial.
+
+## Alternativas
+- Usa volumenes nombrados para persistencia de datos.
+- Usa redes personalizadas para aislar servicios.
+
+## Resumen rapido
+- Ejecuta contenedores con variables de entorno y puertos definidos.
+- Conecta clientes a la base con usuarios no root.
+- Usa volumenes/redes para un entorno estable.
+
+## Referencias oficiales (Docker)
+- https://docs.docker.com/engine/reference/commandline/run/
+- https://docs.docker.com/engine/reference/commandline/exec/
+- https://docs.docker.com/engine/storage/volumes/
+- https://docs.docker.com/engine/network/
+- https://hub.docker.com/_/mariadb

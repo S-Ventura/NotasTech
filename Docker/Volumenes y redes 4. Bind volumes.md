@@ -35,3 +35,21 @@ docker container run \
 node:18-alpine3.21 \
 sh -c "yarn install && yarn start:dev"
 docker pull python:3.11.13-slim-trixie
+
+## Riesgos y notas
+- Bind mounts exponen el filesystem del host; cuida permisos.
+- Montar carpetas grandes puede afectar rendimiento.
+
+## Alternativas
+- Usa volumenes nombrados para datos persistentes.
+- Usa `docker exec` para inspeccionar sin montar.
+
+## Resumen rapido
+- Bind mounts son utiles para desarrollo y hot-reload.
+- Combina con `docker logs` y `docker exec` para diagnostico.
+
+## Referencias oficiales (Docker)
+- https://docs.docker.com/engine/storage/bind-mounts/
+- https://docs.docker.com/engine/reference/commandline/run/
+- https://docs.docker.com/engine/reference/commandline/exec/
+- https://docs.docker.com/engine/reference/commandline/logs/

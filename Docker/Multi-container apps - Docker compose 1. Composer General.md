@@ -84,3 +84,18 @@ networks:
     driver: bridge
 ```
 
+## Riesgos y notas
+- `depends_on` no espera a que el servicio este listo (solo ordena arranque).
+- El campo `version` ya no es requerido en Compose v2.
+
+## Alternativas
+- Usa `healthcheck` para controlar la disponibilidad de servicios.
+- Usa `.env` para variables sensibles.
+
+## Resumen rapido
+- Compose define servicios, redes y volumenes en un solo archivo.
+- Facilita reproducir entornos con un solo comando.
+
+## Referencias oficiales (Docker)
+- https://docs.docker.com/compose/
+- https://docs.docker.com/compose/compose-file/
