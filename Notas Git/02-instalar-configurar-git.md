@@ -133,6 +133,11 @@ git config --global push.default simple          # evita pushes ambiguos
 git config --global push.autoSetupRemote true    # crea upstream al primer push (Git reciente)
 ```
 
+Opcional para verificar que quedo activo:
+```bash
+git config --global --get pull.rebase
+```
+
 Alternativas:
 - Si tu equipo NO usa rebase, cambia `pull.rebase` por `git config --global pull.ff only` para evitar merges inesperados.
 - Si no quieres auto-stash, omite `rebase.autoStash` y resuelve los cambios manualmente.
