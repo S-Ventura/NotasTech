@@ -124,3 +124,18 @@ luna@luna:~/Documentos/NotasTech$
 
 ```bash
 ```
+
+## Riesgos y notas
+- `docker network prune` elimina redes no usadas; verifica antes.
+- Contenedores fuera de la misma red no se ven entre si.
+
+## Alternativas
+- Usa `docker compose` para declarar redes y alias.
+
+## Resumen rapido
+- Las redes permiten comunicacion entre contenedores.
+- Usa redes personalizadas para aislar servicios.
+
+## Referencias oficiales (Docker)
+- https://docs.docker.com/engine/network/
+- https://docs.docker.com/engine/reference/commandline/network/

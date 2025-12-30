@@ -250,3 +250,29 @@ docker login
 
 # Subir imagen a Docker Hub
 docker push <usuario>/<repo>:<tag>
+
+## Riesgos y notas
+- Dockerfiles grandes generan imagenes pesadas; optimiza capas y cache.
+- No incluyas secretos en capas de build.
+- Ordena instrucciones para aprovechar la cache.
+
+## Alternativas
+- Usa multi-stage builds para reducir tamano.
+- Agrega `.dockerignore` para excluir archivos innecesarios.
+- Buildx para multi-arquitectura.
+
+## Resumen rapido
+- Un Dockerfile define capas reproducibles para construir imagenes.
+- Construye con `docker build`, etiqueta con `docker image tag` y publica con `docker push`.
+- Usa buenas practicas para imagenes pequenas y seguras.
+
+## Referencias oficiales (Docker)
+- https://docs.docker.com/engine/reference/builder/
+- https://docs.docker.com/build/
+- https://docs.docker.com/build/building/multi-stage/
+- https://docs.docker.com/engine/reference/commandline/build/
+- https://docs.docker.com/engine/reference/commandline/buildx/
+- https://docs.docker.com/engine/reference/commandline/image_tag/
+- https://docs.docker.com/engine/reference/commandline/push/
+- https://docs.docker.com/engine/reference/commandline/login/
+- https://docs.docker.com/build/building/ignore/

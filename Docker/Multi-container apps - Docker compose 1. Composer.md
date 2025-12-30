@@ -53,3 +53,25 @@ luna@luna:~/Documentos$ docker network connect postgres-net pgAdmin
 ```bash
 luna@luna:~/Documentos$ docker network connect postgres-net postgres-db
 ```
+
+## Riesgos y notas
+- Variables sensibles en texto plano; usa `.env`.
+- Puertos pueden entrar en conflicto con servicios locales.
+- Si no declaras volumenes, los datos se pierden al borrar contenedores.
+
+## Alternativas
+- Usa `docker compose` para definir todo en un solo archivo.
+- Agrega `depends_on` y `healthcheck` para orquestar arranques.
+
+## Resumen rapido
+- Levanta Postgres y pgAdmin con variables, volumenes y red.
+- Conecta servicios a una red comun para comunicacion.
+- Migra a Compose para repetir el entorno de forma consistente.
+
+## Referencias oficiales (Docker)
+- https://docs.docker.com/compose/
+- https://docs.docker.com/engine/reference/commandline/compose/
+- https://docs.docker.com/engine/reference/commandline/run/
+- https://docs.docker.com/engine/reference/commandline/network_create/
+- https://docs.docker.com/engine/reference/commandline/network_connect/
+- https://docs.docker.com/engine/storage/volumes/
