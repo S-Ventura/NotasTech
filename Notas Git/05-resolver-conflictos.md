@@ -42,10 +42,15 @@ Abre cada archivo conflictivo y decide qué código mantener:
 
 ### 3. Eliminar los marcadores de conflicto
 Borra las líneas `<<<<<<<`, `=======` y `>>>>>>>` dejando solo el código final.
+No commitees archivos que todavía tengan estos marcadores.
 
 ### 4. Marcar como resuelto
 ```bash
 git add archivo-resuelto.txt
+```
+Si agregaste algo por error:
+```bash
+git restore --staged archivo-resuelto.txt
 ```
 
 ### 5. Continuar la operación
@@ -225,3 +230,4 @@ git rebase --skip               # salta el commit actual y continúa
 - https://git-scm.com/docs/git-add
 - https://git-scm.com/docs/git-diff
 - https://git-scm.com/docs/git-mergetool
+- https://git-scm.com/docs/git-restore

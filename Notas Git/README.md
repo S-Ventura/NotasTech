@@ -55,6 +55,7 @@ Riesgos:
 
 ### Sincronizar con el remoto
 ```bash
+git clone <url>                # clona un repositorio remoto
 git push origin main           # envía commits locales a la rama remota
 git pull origin main           # trae cambios remotos e intenta fusionarlos
 git fetch origin               # actualiza referencias sin fusionar todavía
@@ -161,6 +162,7 @@ Esta es una guía rápida de referencia.
 ## Referencias oficiales (Git)
 
 - https://git-scm.com/docs/git-config
+- https://git-scm.com/docs/git-clone
 - https://git-scm.com/docs/git-status
 - https://git-scm.com/docs/git-add
 - https://git-scm.com/docs/git-commit

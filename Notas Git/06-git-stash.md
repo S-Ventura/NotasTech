@@ -16,6 +16,7 @@
 git stash                       # guarda cambios tracked (modificados)
 git stash -u                    # incluye archivos untracked (nuevos)
 git stash -a                    # incluye también archivos ignorados
+git stash -k                    # conserva lo que ya está en staging
 ```
 
 ### Recuperar cambios

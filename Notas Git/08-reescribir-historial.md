@@ -155,6 +155,8 @@ git reset --hard abc1234
 git revert abc1234              # crea commit que revierte abc1234
 git revert HEAD                 # revierte el último commit
 git revert HEAD~3..HEAD         # revierte los últimos 3 commits
+git revert --no-edit abc1234    # usa el mensaje por defecto
+git revert --no-commit A..B     # acumula reverts antes de commitear
 ```
 
 ## git cherry-pick

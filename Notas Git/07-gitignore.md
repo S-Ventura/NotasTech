@@ -251,6 +251,15 @@ nano .git/info/exclude
 - Scripts locales de desarrollo
 - Notas personales del proyecto
 
+Alternativa local rápida (opcional):
+```bash
+git update-index --assume-unchanged archivo.txt
+```
+Para revertirlo:
+```bash
+git update-index --no-assume-unchanged archivo.txt
+```
+
 ## Errores comunes
 
 ### El archivo no se ignora
@@ -305,3 +314,4 @@ touch carpeta/.gitkeep
 - https://git-scm.com/docs/git-check-ignore
 - https://git-scm.com/docs/git-status
 - https://git-scm.com/docs/git-config
+- https://git-scm.com/docs/git-update-index
