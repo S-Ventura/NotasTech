@@ -115,6 +115,9 @@ git commit -m "Ignorar archivo.txt"
 
 El archivo permanecerá en tu disco pero Git dejará de rastrearlo.
 
+Riesgos:
+- `git rm --cached` quita del indice; asegúrate de que el archivo siga en tu disco si lo necesitas.
+
 ## .gitignore global
 
 Para ignorar archivos en todos tus repositorios (como `.DS_Store`):
@@ -294,3 +297,11 @@ touch carpeta/.gitkeep
 | `#` | Comentario |
 
 > Tip: Configura `.gitignore` al inicio del proyecto. Agregar archivos después de que ya tienen historial es más complejo y puede requerir reescribir la historia si contienen información sensible.
+
+## Referencias oficiales (Git)
+
+- https://git-scm.com/docs/gitignore
+- https://git-scm.com/docs/git-rm
+- https://git-scm.com/docs/git-check-ignore
+- https://git-scm.com/docs/git-status
+- https://git-scm.com/docs/git-config

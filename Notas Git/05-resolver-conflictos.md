@@ -143,6 +143,9 @@ git merge -s ours feature       # estrategia: ignora completamente los cambios d
 git merge -X ours feature       # opción: en conflictos, prefiere nuestra versión
 ```
 
+Riesgos:
+- `-s ours` descarta todos los cambios entrantes; revisa antes de usarlo.
+
 ## Prevenir conflictos
 
 - **Comunicación**: coordina con tu equipo quién trabaja en qué archivos
@@ -210,3 +213,15 @@ git rebase --skip               # salta el commit actual y continúa
 | Usar versión entrante | `git checkout --theirs archivo` |
 
 > Tip: Los conflictos parecen intimidantes al principio, pero con práctica se vuelven rutinarios. Tómate el tiempo de entender ambas versiones antes de decidir.
+
+## Referencias oficiales (Git)
+
+- https://git-scm.com/docs/git-merge
+- https://git-scm.com/docs/git-rebase
+- https://git-scm.com/docs/git-pull
+- https://git-scm.com/docs/git-stash
+- https://git-scm.com/docs/git-cherry-pick
+- https://git-scm.com/docs/git-status
+- https://git-scm.com/docs/git-add
+- https://git-scm.com/docs/git-diff
+- https://git-scm.com/docs/git-mergetool

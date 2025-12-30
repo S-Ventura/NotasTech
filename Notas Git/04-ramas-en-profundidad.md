@@ -55,6 +55,9 @@ git branch -D rama-sin-fusionar # fuerza eliminación
 git push origin --delete rama   # elimina rama remota
 ```
 
+Riesgos:
+- `git branch -D` y `git push --delete` eliminan ramas; confirma antes de ejecutar.
+
 ## Fusionar ramas (merge)
 
 Cuando terminas el trabajo en una rama, normalmente la fusionas de vuelta a `main`.
@@ -111,6 +114,9 @@ git merge --no-ff feature       # fuerza merge commit aunque sea posible ff
 git switch feature
 git rebase main
 ```
+
+Riesgos:
+- `git rebase` reescribe historial; evita usarlo en ramas compartidas.
 
 ```
 Antes:
@@ -187,6 +193,9 @@ git fetch --prune                       # elimina referencias a ramas borradas
 git remote prune origin                 # alternativa
 ```
 
+Riesgos:
+- `--prune` elimina referencias locales a ramas remotas borradas; confirma que no las necesitas.
+
 ## Buenas prácticas
 
 - **Nombres descriptivos**: `feature/login-oauth`, `fix/header-overflow`, `docs/api-endpoints`
@@ -207,3 +216,14 @@ git remote prune origin                 # alternativa
 | Eliminar local | `git branch -d rama` |
 | Eliminar remota | `git push origin --delete rama` |
 | Publicar | `git push -u origin rama` |
+
+## Referencias oficiales (Git)
+
+- https://git-scm.com/docs/git-branch
+- https://git-scm.com/docs/git-switch
+- https://git-scm.com/docs/git-checkout
+- https://git-scm.com/docs/git-merge
+- https://git-scm.com/docs/git-rebase
+- https://git-scm.com/docs/git-fetch
+- https://git-scm.com/docs/git-push
+- https://git-scm.com/docs/git-remote
