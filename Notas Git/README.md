@@ -13,6 +13,7 @@ Conjunto de apuntes breves para introducir Git desde cero. Esta es una guía des
 1. [¿Qué es Git?](01-que-es-git.md)
 2. [Instalar y configurar Git](02-instalar-configurar-git.md)
 3. [Tu primer repositorio local](03-primer-repositorio.md)
+4. [Flujo diario con Git](04-flujo-diario.md)
 
 #### Trabajo con ramas
 4. [Ramas en profundidad](04-ramas-en-profundidad.md)
@@ -52,6 +53,58 @@ git push origin main           # envía commits locales a la rama remota
 git pull origin main           # trae cambios remotos e intenta fusionarlos
 git fetch origin               # actualiza referencias sin fusionar todavía
 git merge origin/main          # fusiona manualmente después de un fetch
+```
+
+### Mantenerte al día con main (flujo diario)
+Este flujo ayuda a mantener tu rama alineada con main sin acumular conflictos.
+
+Al iniciar el día:
+```bash
+git fetch origin
+git rebase origin/main         # o git merge origin/main si tu equipo usa merge
+```
+
+Antes de comenzar un bloque de trabajo importante:
+```bash
+git fetch origin
+git rebase origin/main
+```
+
+Antes de hacer push:
+```bash
+git fetch origin
+git rebase origin/main
+git push
+```
+
+Antes de abrir un PR:
+```bash
+git fetch origin
+git rebase origin/main
+# corre tests y luego git push
+```
+
+Nota importante:
+- `pull.rebase=true` solo aplica cuando usas `git pull`. Si haces `git fetch` + `git merge`, no estás rebasando.
+
+### Cuando tu PR ya fue mergeado a main
+Si tu PR ya se fusionó, sincroniza tu entorno local:
+
+```bash
+git checkout main
+git pull
+```
+
+Si vas a seguir usando tu rama actual:
+```bash
+git checkout tu-rama
+git rebase origin/main
+git push
+```
+
+Si no la vas a usar más, eliminarla es opción:
+```bash
+git branch -d tu-rama
 ```
 
 ### Flujo típico para Pull Requests
